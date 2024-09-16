@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class ExceptionsHandler {
     @ExceptionHandler(BadRequestException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.BAD_REQUEST) //400
     public ErrorDTO handleBadRequest(BadRequestException ex){
         return new ErrorDTO(ex.getMessage(), LocalDateTime.now());
     }
@@ -34,8 +34,14 @@ public class ExceptionsHandler {
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.BAD_REQUEST) //400
     public ErrorDTO handleMissingBody(HttpMessageNotReadableException ex, WebRequest request) {
         return new ErrorDTO("devi inserire un body", LocalDateTime.now());
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED) // 401
+    public ErrorDTO handleUnauthorized(UnauthorizedException ex) {
+        return new ErrorDTO(ex.getMessage(), LocalDateTime.now());
     }
 }

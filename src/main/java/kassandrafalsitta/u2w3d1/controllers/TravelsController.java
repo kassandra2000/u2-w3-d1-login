@@ -1,11 +1,11 @@
 package kassandrafalsitta.u2w3d1.controllers;
 import jakarta.validation.Valid;
-import kassandrafalsitta.u2w2d5.entities.Travel;
-import kassandrafalsitta.u2w2d5.exceptions.BadRequestException;
-import kassandrafalsitta.u2w2d5.payloads.TravelDTO;
-import kassandrafalsitta.u2w2d5.payloads.TravelRespDTO;
-import kassandrafalsitta.u2w2d5.payloads.TravelStateDTO;
-import kassandrafalsitta.u2w2d5.services.TravelsService;
+import kassandrafalsitta.u2w3d1.entities.Travel;
+import kassandrafalsitta.u2w3d1.exceptions.BadRequestException;
+import kassandrafalsitta.u2w3d1.payloads.TravelDTO;
+import kassandrafalsitta.u2w3d1.payloads.TravelRespDTO;
+import kassandrafalsitta.u2w3d1.payloads.TravelStateDTO;
+import kassandrafalsitta.u2w3d1.services.TravelsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.data.domain.Page;

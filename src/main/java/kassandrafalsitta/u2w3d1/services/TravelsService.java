@@ -1,12 +1,12 @@
 package kassandrafalsitta.u2w3d1.services;
 
-import kassandrafalsitta.u2w2d5.entities.Travel;
-import kassandrafalsitta.u2w2d5.enums.StateTravel;
-import kassandrafalsitta.u2w2d5.exceptions.BadRequestException;
-import kassandrafalsitta.u2w2d5.exceptions.NotFoundException;
-import kassandrafalsitta.u2w2d5.payloads.TravelDTO;
-import kassandrafalsitta.u2w2d5.payloads.TravelStateDTO;
-import kassandrafalsitta.u2w2d5.repositories.TravelsRepository;
+import kassandrafalsitta.u2w3d1.entities.Travel;
+import kassandrafalsitta.u2w3d1.enums.StateTravel;
+import kassandrafalsitta.u2w3d1.exceptions.BadRequestException;
+import kassandrafalsitta.u2w3d1.exceptions.NotFoundException;
+import kassandrafalsitta.u2w3d1.payloads.TravelDTO;
+import kassandrafalsitta.u2w3d1.payloads.TravelStateDTO;
+import kassandrafalsitta.u2w3d1.repositories.TravelsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -2,12 +2,13 @@ package kassandrafalsitta.u2w3d1.services;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import kassandrafalsitta.u2w2d5.entities.Employee;
-import kassandrafalsitta.u2w2d5.exceptions.BadRequestException;
-import kassandrafalsitta.u2w2d5.exceptions.NotFoundException;
-import kassandrafalsitta.u2w2d5.payloads.EmployeeDTO;
-import kassandrafalsitta.u2w2d5.repositories.EmployeesRepository;
+import kassandrafalsitta.u2w3d1.entities.Employee;
+import kassandrafalsitta.u2w3d1.exceptions.BadRequestException;
+import kassandrafalsitta.u2w3d1.exceptions.NotFoundException;
+import kassandrafalsitta.u2w3d1.payloads.EmployeeDTO;
+import kassandrafalsitta.u2w3d1.repositories.EmployeesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +39,7 @@ public class EmployeesService {
                     throw new BadRequestException("L'email " + body.email() + " è già in uso!");
                 }
         );
-        Employee employee = new Employee(body.username(), body.name(), body.surname(), body.email(), "https://ui-avatars.com/api/?name=" + body.name() + "+" + body.surname());
+        Employee employee = new Employee(body.username(), body.name(), body.surname(), body.email(), "https://ui-avatars.com/api/?name=" + body.name() + "+" + body.surname(),body.password());
         return this.employeesRepository.save(employee);
     }
 
@@ -52,6 +53,7 @@ public class EmployeesService {
         found.setName(updatedEmployee.name());
         found.setSurname(updatedEmployee.surname());
         found.setEmail(updatedEmployee.email());
+        found.setPassword(updatedEmployee.password());
         return this.employeesRepository.save(found);
     }
 
@@ -64,6 +66,10 @@ public class EmployeesService {
         String avatar = (String) cloudinaryUploader.uploader().upload(file.getBytes(), ObjectUtils.emptyMap()).get("url");
         found.setAvatar(avatar);
         return this.employeesRepository.save(found);
+    }
+
+    public Employee findByEmail(String email) {
+        return employeesRepository.findByEmail(email).orElseThrow(() -> new NotFoundException("Il dipendente con l'email " + email + " non è stato trovato!"));
     }
 
 

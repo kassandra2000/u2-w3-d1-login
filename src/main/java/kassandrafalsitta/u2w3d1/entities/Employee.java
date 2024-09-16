@@ -24,13 +24,15 @@ public class Employee {
         private String surname;
         private String email;
         private String avatar;
+        private String password;
         //costruttore
 
-        public Employee( String username, String name, String surname, String email, String avatar) {
+        public Employee( String username, String name, String surname, String email, String avatar,String password) {
                 this.username = username;
                 this.name = name;
                 this.surname = surname;
                 this.email = email;
                 this.avatar = avatar;
+                this.password = password;
         }
 }

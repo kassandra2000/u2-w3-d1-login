@@ -1,6 +1,6 @@
 package kassandrafalsitta.u2w3d1.exceptions;
 
-import kassandrafalsitta.u2w2d5.payloads.ErrorDTO;
+import kassandrafalsitta.u2w3d1.payloads.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;

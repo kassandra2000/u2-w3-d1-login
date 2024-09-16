@@ -1,11 +1,11 @@
 package kassandrafalsitta.u2w3d1.controllers;
 
 import jakarta.validation.Valid;
-import kassandrafalsitta.u2w2d5.entities.Employee;
-import kassandrafalsitta.u2w2d5.exceptions.BadRequestException;
-import kassandrafalsitta.u2w2d5.payloads.EmployeeDTO;
-import kassandrafalsitta.u2w2d5.payloads.EmployeeRespDTO;
-import kassandrafalsitta.u2w2d5.services.EmployeesService;
+import kassandrafalsitta.u2w3d1.entities.Employee;
+import kassandrafalsitta.u2w3d1.exceptions.BadRequestException;
+import kassandrafalsitta.u2w3d1.payloads.EmployeeDTO;
+import kassandrafalsitta.u2w3d1.payloads.EmployeeRespDTO;
+import kassandrafalsitta.u2w3d1.services.EmployeesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -31,19 +31,6 @@ public class EmployeesController {
                                         @RequestParam(defaultValue = "10") int size,
                                         @RequestParam(defaultValue = "id") String sortBy) {
         return this.employeesService.findAll(page, size, sortBy);
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public EmployeeRespDTO createEmployee(@RequestBody  @Validated EmployeeDTO body, BindingResult validationResult) {
-        if(validationResult.hasErrors())  {
-            String messages = validationResult.getAllErrors().stream()
-                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                    .collect(Collectors.joining(". "));
-            throw new BadRequestException("Ci sono stati errori nel payload. " + messages);
-        } else {
-            return new EmployeeRespDTO(this.employeesService.saveEmployee(body).getId());
-        }
     }
 
     @GetMapping("/{employeeId}")

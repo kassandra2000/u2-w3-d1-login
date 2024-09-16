@@ -1,7 +1,7 @@
 package kassandrafalsitta.u2w3d1.entities;
 
 import jakarta.persistence.*;
-import kassandrafalsitta.u2w2d5.enums.StateTravel;
+import kassandrafalsitta.u2w3d1.enums.StateTravel;
 import lombok.*;
 
 import java.time.LocalDate;

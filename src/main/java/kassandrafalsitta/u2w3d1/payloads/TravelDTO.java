@@ -3,7 +3,7 @@ package kassandrafalsitta.u2w3d1.payloads;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import kassandrafalsitta.u2w2d5.enums.StateTravel;
+import kassandrafalsitta.u2w3d1.enums.StateTravel;
 
 import java.time.LocalDate;
 
